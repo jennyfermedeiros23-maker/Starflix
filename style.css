@@ -1,0 +1,475 @@
+﻿/**
+ * ===== VARIÁVEIS CSS - TEMA ESCURO =====
+ * Define variáveis reutilizáveis para cores e efeitos do tema escuro
+ * Estas variáveis são usadas em todo o CSS através de var(--nome)
+ */
+:root {
+  /* Cor de fundo principal escura - quase preta com transparência */
+  --bg: #050505ec;
+  
+  /* Cor de superfície para elementos secundários */
+  --surface: #24053cf5;
+  
+  /* Cor do texto principal - roxo claro */
+  --text: #744bf2fe;
+  
+  /* Cor para texto secundário ou elementos muted */
+  --muted: #3b0b889c;
+  
+  /* Cor de destaque ou acento - roxo */
+  --accent: #2a0247d8;
+  
+  /* Sombra padrão para elementos - sombra profunda roxa */
+  --shadow: 0 32px 80px rgba(68, 12, 128, 0.89);
+}
+
+/**
+ * ===== TEMA CLARO - LIGHT MODE =====
+ * Redefine as variáveis CSS quando a classe 'light-mode' está ativa
+ * Fornece cores mais claras e suaves para melhor legibilidade durante o dia
+ */
+.light-mode {
+  /* Fundo com tonalidade lavanda clara */
+  --bg: #b297f1c3;
+  
+  /* Superfície branca para elementos */
+  --surface: #f5f5f5;
+  
+  /* Texto em tons claros de roxo */
+  --text: #c9addfe5;
+  
+  /* Texto secundário em cinza */
+  --muted: #666666;
+  
+  /* Acento suave em lavanda */
+  --accent: #c0b2f05c;
+  
+  /* Sombra suave para o modo claro */
+  --shadow: 0 32px 80px rgba(163, 128, 212, 0.292);
+}
+
+/**
+ * Fundo branco puro para o body no modo claro
+ */
+.light-mode body {
+  background: #bb7ded;
+}
+
+/**
+ * ===== SELETOR UNIVERSAL =====
+ * Aplica box-sizing border-box a TODOS os elementos da página
+ * Faz com que padding e border sejam inclusos na largura/altura total
+ */
+* {
+  box-sizing: border-box;
+}
+
+/**
+ * ===== ESTILOS DO HTML =====
+ * Define propriedades globais para toda a página
+ */
+html {
+  /* Define a família de fontes padrão (Quicksand com fallback para sans-serif) */
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  
+  /* Habilita rolagem suave ao clicar em âncoras (links internos) */
+  scroll-behavior: smooth;
+}
+
+/**
+ * ===== ESTILOS DO BODY =====
+ * Define layout principal da página com flexbox e tema visual
+ */
+body {
+  /* Remove margem padrão do navegador */
+  margin: 0;
+  
+  /* Define altura mínima de 100% da viewport (tela inteira) */
+  min-height: 100vh;
+  
+  /* Aplica gradientes para criar fundo visual atrativo */
+  background: radial-gradient(circle at top, rgba(47, 2, 65, 0.915), transparent 45%),
+    linear-gradient(140deg, #030006 0%, #130518f1 90%);
+  
+  /* Usa cores definidas nas variáveis CSS */
+  color: var(--text);
+  
+  /* Usa flexbox para centralizar conteúdo na página */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Adiciona espaçamento interno em todos os lados */
+  padding: 2rem;
+}
+
+/**
+ * ===== CONTAINER PRINCIPAL (MAIN) =====
+ * Define layout flexível em coluna para organizar conteúdo verticalmente
+ */
+main {
+  /* Usa flexbox para criar layout responsivo */
+  display: flex;
+  
+  /* Organiza itens em coluna (verticalmente) */
+  flex-direction: column;
+  
+  /* Centraliza itens horizontalmente */
+  align-items: center;
+  
+  /* Centraliza itens verticalmente */
+  justify-content: center;
+  
+  /* Define altura mínima igual à viewport */
+  min-height: 100vh;
+}
+
+/**
+ * ===== CONTAINER DE SELEÇÃO DE PERFIL =====
+ * Estilo visual para o card que contém a lista de perfis
+ */
+.profile-selection {
+  /* Arredonda os cantos do container (border-radius) */
+  border-radius: 30px;
+  
+  /* Aplica sombra profunda do tema definida em variável */
+  box-shadow: var(--shadow);
+  
+  /* Espaçamento interno: 2rem vertical, 2.2rem horizontal */
+  padding: 2rem 2.2rem;
+}
+
+/**
+ * ===== HEADING 1 (TÍTULO PRINCIPAL) =====
+ * Estilo para o título "Selecione seu perfil" com animação de entrada
+ */
+h1 {
+  /* Remove margem padrão e define margem inferior */
+  margin: 0 0 2rem;
+  
+  /* Tamanho responsivo: mínimo 1.8rem, máximo 2.5rem, ajustado por viewport */
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  
+  /* Altura da linha para espaçamento dentro do texto */
+  line-height: 1.2;
+  
+  /* Espaçamento entre as letras */
+  letter-spacing: 0.02em;
+  
+  /* Peso/espessura da fonte */
+  font-weight: 400;
+  
+  /* Centraliza o texto horizontalmente */
+  text-align: center;
+  
+  /* Começa com opacidade 0 (invisível) para animação */
+  opacity: 0;
+  
+  /* Posição inicial 20px para baixo, animação move para cima */
+  transform: translateY(20px);
+  
+  /* Define fonte do título */
+  font-family: 'Quicksand', sans-serif;
+  
+  /* Cria efeito de brilho roxo ao redor do texto */
+  text-shadow: 
+  0 0 20px rgba(90, 11, 170, 0.501),
+  0 0 40px rgba(71, 6, 136, 0.4);
+  
+  /* Aplica animações: aparecer (0.8s) + glow contínuo (2s) */
+  animation: aparecer 0.8s ease forwards, glow 2s ease-in-out infinite alternate;
+}
+
+/**
+ * ===== ANIMAÇÃO DE APARIÇÃO =====
+ * Faz o título aparecer se movendo de baixo para cima
+ */
+@keyframes aparecer {
+  to {
+    opacity: 0.9;           /* Torna visível */
+    transform: translateY(0); /* Move para posição final */
+  }
+}
+
+/**
+ * ===== LISTA DE PERFIS (GRID) =====
+ * Layout em grade (grid) para organizar perfis em linhas e colunas
+ */
+.profile-list {
+  /* Usa CSS Grid para layout estruturado */
+  display: grid;
+  
+  /* Cria 5 colunas com tamanho igual (repeat 5 vezes, 1fr = 1 fração) */
+  grid-template-columns: repeat(5, 1fr);
+  
+  /* Espaçamento entre itens (gap) */
+  gap: 1.09rem;
+  
+  /* Centraliza itens horizontalmente dentro das células */
+  justify-items: center;
+}
+
+/**
+ * Remove estilos padrão das listas (ul, ol) e da profile-list
+ */
+.profiles ul, .profiles ol, .profile-list {
+  list-style: none;  /* Remove marcadores/números */
+  margin: 0;         /* Remove margem padrão */
+  padding: 0;        /* Remove padding padrão */
+}
+
+/**
+ * ===== ITEM DE PERFIL INDIVIDUAL =====
+ * Estilo para cada perfil (imagem + nome) na grade
+ */
+.profile {
+  /* Usa flexbox inline para layout em coluna */
+  display: inline-flex;
+  
+  /* Organiza conteúdo verticalmente */
+  flex-direction: column;
+  
+  /* Centraliza itens horizontalmente */
+  align-items: center;
+  
+  /* Largura automática */
+  width: auto;
+  
+  /* Largura máxima para não ficar muito grande */
+  max-width: 170px;
+  
+  /* Remove sublinhado de links */
+  text-decoration: none;
+  
+  /* Herda cor do texto do elemento pai */
+  color: inherit;
+  
+  /* Transição suave para transformações e sombras ao passar mouse */
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+/**
+ * Efeito ao passar o mouse sobre a imagem do perfil
+ */
+.profile:hover img {
+  /* Aumenta a imagem em 8% */
+  transform: scale(1.08);
+  
+  /* Adiciona sombra roxa ao passar o mouse */
+  box-shadow: 0 10px 25px rgba(120, 60, 255, 0.5);
+}
+
+/**
+ * Efeito ao passar o mouse sobre o nome do perfil (figcaption)
+ */
+profile:hover figcaption {
+  /* Muda cor para branco */
+  color: #ffffff;
+  
+  /* Aumenta o tamanho em 5% */
+  transform: scale(1.05);
+}
+
+/**
+ * Efeito ao focar no elemento (teclado ou clique)
+ */
+.profile:focus-visible {
+  /* Translada (move) elemento para cima */
+  transform: translateY(-8px);
+  
+  /* Adiciona sombra quando foco está ativo */
+  box-shadow: 0 16px 30px rgba(47, 21, 107, 0.475);
+}
+
+/**
+ * ===== FIGURE (CONTAINER DE IMAGEM) =====
+ * Elemento semântico que agrupa imagem + legenda
+ */
+.profile figure {
+  /* Remove margem padrão */
+  margin: 0;
+  
+  /* Define largura em 90% do container pai */
+  width: 90%;
+}
+
+/**
+ * ===== IMAGEM DO PERFIL =====
+ * Estilos para a foto de perfil em cada card
+ */
+.profile img {
+  /* Exibe como bloco (ocupa linha inteira) */
+  display: block;
+  
+  /* Ocupa 100% da largura do container */
+  width: 100%;
+  
+  /* Mantém proporção quadrada (1:1) */
+  aspect-ratio: 1 / 1;
+  
+  /* Ajusta imagem para cobrir a área sem distorcer */
+  object-fit: cover;
+  
+  /* Arredonda os cantos da imagem */
+  border-radius: 18px;
+  
+  /* Remove borda padrão */
+  border: none;
+  
+  /* Transição suave para efeitos de hover */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/**
+ * ===== LEGENDA (NOME DO PERFIL) =====
+ * Estilo para o texto do nome do perfil abaixo da imagem
+ */
+figcaption {
+  /* Espaçamento superior entre imagem e nome */
+  margin-top: 0.8rem;
+  
+  /* Centraliza o texto */
+  text-align: center;
+  
+  /* Tamanho da fonte do nome */
+  font-size: 1rem;
+  
+  /* Peso da fonte (bold) */
+  font-weight: 600;
+  
+  /* Espaçamento entre as letras */
+  letter-spacing: 0.05em;
+  
+  /* Cor do texto (branco com transparência) */
+  color: rgba(255, 255, 255, 0.8);
+  
+  /* Transição suave para efeitos */
+  transition: all 0.3s ease;
+}
+
+/**
+ * ===== RESPONSIVIDADE PARA DISPOSITIVOS PEQUENOS =====
+ * Ajustes para telas com até 620px de largura
+ */
+@media (max-width: 620px) {
+  /* Reduz padding do body */
+  body {
+    padding: 1rem;
+  }
+
+  /* Reduz padding do container de perfis */
+  .profile-selection {
+    padding: 2rem 1.25rem;
+  }
+
+  /* Reduz espaçamento entre perfis */
+  .profile-list {
+    gap: 1rem;
+  }
+}
+
+/**
+ * ===== RESPONSIVIDADE PARA TABLETS =====
+ * Ajustes para telas entre 768px
+ */
+@media (max-width: 768px) {
+  /* Reduz a grade de 5 colunas para 3 colunas */
+  .profile-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Reduz padding do container */
+  .profile-selection {
+    padding: 1.5rem 1rem;
+  }
+
+  /* Ajusta tamanho responsivo do título */
+  h1 {
+    font-size: clamp(1.8rem, 3vw, 2.2rem);
+    color: var(--text);
+    text-shadow: 0 0 15px rgba(128, 0, 255, 0.6);
+  }
+}
+
+/**
+ * ===== RESPONSIVIDADE PARA MÓVEL =====
+ * Ajustes para telas muito pequenas (até 480px)
+ */
+@media (max-width: 480px) {
+  /* Reduz a grade para apenas 2 colunas */
+  .profile-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Remove padding do body */
+  body {
+    padding: 0.5rem;
+  }
+
+  /* Reduz padding do container */
+  .profile-selection {
+    padding: 1rem 0.5rem;
+  }
+
+  /* Reduz tamanho do título para telas muito pequenas */
+  h1 {
+    font-size: clamp(1.7rem, 4vw, 1.8rem);
+    color: var(--text);
+  }
+}
+
+
+/**
+ * ===== BOTÃO DE ALTERNÂNCIA DE TEMA =====
+ * Botão flutuante no canto superior direito para alternar tema claro/escuro
+ */
+#theme-toggle {
+  /* Posicionamento fixo em relação à viewport */
+  position: fixed;
+  
+  /* 10px do topo da tela */
+  top: 10px;
+  
+  /* 10px do lado direito da tela */
+  right: 10px;
+  
+  /* Espaçamento interno do botão */
+  padding: 10px;
+  
+  /* Torna o botão circular */
+  border-radius: 50%;
+  
+  /* Remove borda padrão do botão */
+  border: none;
+  
+  /* Tamanho do ícone (emoji) */
+  font-size: 13px;
+  
+  /* Cor de fundo - roxo transparente */
+  background: #ad85ec63;
+  
+  /* Cor do texto/ícone */
+  color: #d3c8db;
+  
+  /* Cursor muda para pointer ao passar o mouse */
+  cursor: pointer;
+  
+  /* Coloca botão acima de outros elementos */
+  z-index: 9999;
+  
+  /* Transição suave para efeitos de hover */
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/**
+ * Efeito ao passar o mouse sobre o botão
+ */
+#theme-toggle:hover {
+  /* Aumenta botão em 10% */
+  transform: scale(1.1);
+  
+  /* Adiciona sombra roxa ao redor do botão */
+  box-shadow: 0 10px 25px rgba(59, 7, 161, 0.836);
+}
