@@ -7,7 +7,7 @@ export const categories = [
                 youtube: "https://www.youtube.com/embed/nIkfYVetF0g"
             },
             {
-                img: "https://d2s7f8q1bxluur.cloudfront.net/kDSDlhlgOIE5yQW84kuZlGse-20=/954x500/https%3A//s3-eventos-saas.s3.amazonaws.com/media/eventos/0654473a-d368-4fd4-bd2f-dbcf8b75c479.jpg", progress: 0,
+                img: "https://ofolhetimcultural.com.br/wp-content/uploads/2025/06/WhatsApp-Image-2025-06-30-at-16.20.44-scaled.jpeg", progress: 0,
                 youtube: "https://www.youtube.com/watch?v=i1kqPpirUs4"
             },
             {
@@ -69,7 +69,7 @@ export const categories = [
         title: "Filmes Infantis",
         items: [
             { img: "https://i.ytimg.com/vi/pWHQCruykns/maxresdefault.jpg", badge: "Clássico", badgeColor: "red", youtube: "https://www.youtube.com/watch?v=CwXOrWvPBPk" },
-            { img: "https://i.ytimg.com/vi/iWyAmob3GTg/maxresdefault.jpg", badgeColor: "red", youtube: "https://www.youtube.com/watch?v=eY61p4FANEc" },
+            { img: "https://m.media-amazon.com/images/S/pv-target-images/0010bff56bdea8bddf937926a063cb9847e8158109ea3ea491a5c221d38ecfe3.jpg", badgeColor: "red", youtube: "https://www.youtube.com/watch?v=eY61p4FANEc" },
             { img: "https://disney.images.edge.bamgrid.com/ripcut-delivery/v2/variant/disney/019b255e-b997-7a91-b2a7-82ce43d7fa5c/compose?aspectRatio=1.78&format=webp&width=1200", badgeColor: "red", youtube: "https://www.youtube.com/watch?v=GNyujrPGvVc" },
             { img: "https://is1-ssl.mzstatic.com/image/thumb/UH3LWagj881AjzzZD2-NSA/1200x675.jpg", badgeColor: "red", youtube: "https://www.youtube.com/watch?v=ztb9hxl9yXA" },
             { img: "https://m.media-amazon.com/images/S/pv-target-images/1889f9638e88ab234784241b476be20aaef853e3ac4cbc57dc3762fea2e1bce4._UR1920,1080_SX624_FMjpg_.jpg", badgeColor: "red", youtube: "https://www.youtube.com/watch?v=MnRIFXH4IcU" },
